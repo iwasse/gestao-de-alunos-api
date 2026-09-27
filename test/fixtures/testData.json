@@ -1,0 +1,59 @@
+{
+  "admin": {
+    "email": "admin@escola.com",
+    "senha": "admin123"
+  },
+  "aluno": {
+    "nome": "João Silva",
+    "email": "joao.silva@example.com",
+    "matricula": "2026991",
+    "senha": "securepassword1"
+  },
+  "disciplina": {
+    "nome": "Teste de Software",
+    "codigo": "TSW101",
+    "cargaHoraria": 60
+  },
+  "trabalho": {
+    "titulo": "Trabalho Final de Teste de Software",
+    "descricao": "Criar um fluxo de teste automatizado completo."
+  },
+  "cenarios": [
+    {
+      "descricao": "Fluxo com Aluno João Silva em Teste de Software",
+      "aluno": {
+        "nome": "João Silva",
+        "email": "joao.silva@example.com",
+        "matricula": "2026991",
+        "senha": "securepassword1"
+      },
+      "disciplina": {
+        "nome": "Teste de Software",
+        "codigo": "TSW101",
+        "cargaHoraria": 60
+      },
+      "trabalho": {
+        "titulo": "Trabalho Final de Teste de Software",
+        "descricao": "Criar um fluxo de teste automatizado completo."
+      }
+    },
+    {
+      "descricao": "Fluxo com Aluna Maria Santos em Banco de Dados",
+      "aluno": {
+        "nome": "Maria Santos",
+        "email": "maria.santos@example.com",
+        "matricula": "2026992",
+        "senha": "securepassword2"
+      },
+      "disciplina": {
+        "nome": "Banco de Dados",
+        "codigo": "BD201",
+        "cargaHoraria": 80
+      },
+      "trabalho": {
+        "titulo": "Modelagem de Dados",
+        "descricao": "Elaboração de diagrama relacional e queries SQL."
+      }
+    }
+  ]
+}
