@@ -1,3 +1,4 @@
+import './setup.js';
 import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
@@ -15,15 +16,8 @@ const testData = JSON.parse(fs.readFileSync(testDataPath, 'utf8'));
 
 const request = supertest(app);
 
-describe('Fluxo Principal da API (Data-Driven Testing)', () => {
-  const cenarios = testData.cenarios || [
-    {
-      descricao: 'Cenário Padrão',
-      aluno: testData.aluno,
-      disciplina: testData.disciplina,
-      trabalho: testData.trabalho,
-    },
-  ];
+describe('Fluxo Principal da API', () => {
+  const cenarios = testData.cenarios;
 
   cenarios.forEach((cenario) => {
     describe(`${cenario.descricao}`, () => {
@@ -49,7 +43,7 @@ describe('Fluxo Principal da API (Data-Driven Testing)', () => {
         if (alunoId) await Aluno.findByIdAndDelete(alunoId);
       });
 
-      it('1. Deve realizar login como administrador via helper', async () => {
+      it('1. Deve realizar login como administrador', async () => {
         adminToken = await loginAdmin(testData.admin);
         expect(adminToken).to.be.a('string');
         expect(adminToken.length).to.be.greaterThan(0);
@@ -92,7 +86,7 @@ describe('Fluxo Principal da API (Data-Driven Testing)', () => {
         expect(res.body.disciplinaId).to.equal(disciplinaId);
       });
 
-      it('5. Deve realizar login como usuário (aluno) via helper', async () => {
+      it('5. Deve realizar login como aluno', async () => {
         alunoToken = await loginUsuario({
           email: cenario.aluno.email,
           senha: cenario.aluno.senha,
